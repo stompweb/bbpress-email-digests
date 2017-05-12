@@ -4,7 +4,7 @@ bbPress Email Digests
 Every time a user posts a topic or reply on a bbPress forum an email is sent to all the users that are subscribed to the forum or topic. If you run a site with a large userbase then this presents two problems:
 
 1. When a user posts a topic or reply they have to wait until all the emails have been sent before the page reloads.
-2. Users receive an email for each topic or reply that they are subscribed to resulting in a high number of emails sent,
+2. Users receive an email for each topic or reply that they are subscribed to resulting in a high number of emails sent.
 
 This plugin attempts to fix those two issues by doing the following:
 
