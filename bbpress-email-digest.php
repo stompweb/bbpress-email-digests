@@ -165,7 +165,6 @@ function bed_handle_notifications() {
 
 	bed_delete_notification_user_meta();
 
-
 }
 add_action( 'bed_send_bbpress_email_digests', 'bed_handle_notifications' );
 
@@ -181,7 +180,7 @@ function bed_send_notification( $user, $topic_notifications, $reply_notification
 
 	<p>Here is a summary of the latest activity you are subscribed to in the forum:</p>
 
-	<?php 
+	<?php
 	if ( $topic_notifications ) { ?>
 		<p><b>Topics</b></p>
 		<ul>
@@ -195,7 +194,7 @@ function bed_send_notification( $user, $topic_notifications, $reply_notification
 			<?php }
 			?>
 		</ul>
-	<?php 
+	<?php
 	}
 
 	if ( $reply_notifications ) { ?>
@@ -204,7 +203,7 @@ function bed_send_notification( $user, $topic_notifications, $reply_notification
 			<?php
 			foreach ( $reply_notifications as $notification ) {
 				$topic_id = $notification['topic_id'];
-				$reply_id = $notification['reply_id']; 
+				$reply_id = $notification['reply_id'];
 				$reply_author = $notification['reply_author'];
 				$author = get_userdata( $reply_author ); ?>
 				<li>
@@ -234,12 +233,12 @@ function bed_send_notification( $user, $topic_notifications, $reply_notification
 function bed_get_all_notifiable_users() {
 
 	$args = array(
-        'meta_query'    => array(
-            array( 
-                'key'     => 'bbpress_notifications',
-                'value'   => '1',
-            ),
-        )
+		'meta_query'    => array(
+			array(
+				'key'     => 'bbpress_notifications',
+				'value'   => '1',
+			),
+		),
 	);
 
 	$users = new WP_User_Query( $args );
@@ -256,7 +255,7 @@ function bed_delete_notification_user_meta() {
 	global $wpdb;
 
 	$wpdb->query(
-		"DELETE FROM " . $wpdb->prefix . "usermeta
+		'DELETE FROM ' . $wpdb->prefix . "usermeta
 		WHERE meta_key='bbpress_reply_notifications'
 		OR meta_key='bbpress_topic_notifications'
 		OR meta_key='bbpress_notifications'"
@@ -267,8 +266,8 @@ function bed_delete_notification_user_meta() {
 /**
  * Function to have HTML emails
  */
-function bed_set_content_type(){
-    return "text/html";
+function bed_set_content_type() {
+	return 'text/html';
 }
 
 /**
